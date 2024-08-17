@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://btndi5y6guk8g"]
+
+[ext_resource type="Script" path="res://blocks/basic_block.gd" id="1_ebmj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1dfi"]
+size = Vector2(32, 32)
+
+[node name="BasicBlock" type="CharacterBody2D"]
+script = ExtResource("1_ebmj5")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u1dfi")
+debug_color = Color(1, 0.6, 0, 0.419608)
