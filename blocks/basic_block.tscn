@@ -22,7 +22,6 @@ color = Color(1, 0.741176, 0, 1)
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u1dfi")
-debug_color = Color(1, 0.6, 0, 0.419608)
 
 [node name="AirTimer" type="Timer" parent="."]
 wait_time = 0.5
