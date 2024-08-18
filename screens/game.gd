@@ -22,4 +22,4 @@ func _input(event: InputEvent) -> void:
 
 func _on_level_border_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Block"):
-		body.queue_free()
+		body.kill()

@@ -6,11 +6,26 @@
 size = Vector2(32, 32)
 
 [node name="BasicBlock" type="RigidBody2D" groups=["Block"]]
+input_pickable = true
 mass = 5.0
 can_sleep = false
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_ebmj5")
+
+[node name="ExplosionEffect" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 16)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 75.0
+scale_amount_max = 3.0
+color = Color(1, 0.741176, 0, 1)
 
 [node name="Appearance" type="ColorRect" parent="."]
 offset_left = -16.0
@@ -18,6 +33,7 @@ offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
 pivot_offset = Vector2(16, 16)
+mouse_filter = 2
 color = Color(1, 0.741176, 0, 1)
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -29,4 +45,5 @@ one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="AirTimer" to="." method="_on_air_timer_timeout"]
