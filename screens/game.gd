@@ -21,7 +21,5 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_level_border_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		get_tree().reload_current_scene.call_deferred()
-	elif body.is_in_group("Block"):
+	if body.is_in_group("Block"):
 		body.queue_free()
