@@ -4,7 +4,9 @@ extends RigidBody2D
 var _is_grounded := false
 
 
-func _on_body_entered(_body: Node) -> void:
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Block") and not body._is_grounded:
+		return
 	$AirTimer.stop()
 	_is_grounded = true
 
