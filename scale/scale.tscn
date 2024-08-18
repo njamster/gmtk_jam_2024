@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://brvkk4mplduis"]
+[gd_scene load_steps=6 format=3 uid="uid://brvkk4mplduis"]
 
 [ext_resource type="Script" path="res://scale/scale.gd" id="1_cjuyf"]
 [ext_resource type="Texture2D" uid="uid://bsp1bfcdebeu2" path="res://scale/images/tray.svg" id="2_v62hn"]
+[ext_resource type="Texture2D" uid="uid://c3buym2tcmh5q" path="res://scale/images/connector.svg" id="3_7v2rf"]
+[ext_resource type="Texture2D" uid="uid://bj7dovncor4x" path="res://scale/images/base.svg" id="3_ah3cx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5w7b"]
 size = Vector2(600, 60)
@@ -9,6 +11,14 @@ size = Vector2(600, 60)
 [node name="Scale" type="Node2D"]
 position = Vector2(0, 500)
 script = ExtResource("1_cjuyf")
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, 250)
+texture = ExtResource("3_ah3cx")
+
+[node name="Connector" type="Sprite2D" parent="."]
+position = Vector2(0, 50)
+texture = ExtResource("3_7v2rf")
 
 [node name="LeftSide" type="AnimatableBody2D" parent="."]
 unique_name_in_owner = true

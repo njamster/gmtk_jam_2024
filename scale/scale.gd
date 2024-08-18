@@ -29,5 +29,7 @@ func _physics_process(delta: float) -> void:
 		%LeftSide.position.y = move_toward(%LeftSide.position.y, -1 * height, speed)
 		%RightSide.position.y = move_toward(%RightSide.position.y, height, speed)
 
+	$Connector.rotation = $LeftSide.position.direction_to($RightSide.position).angle()
+
 	total_weight_L = DEFAULT_WEIGHT
 	total_weight_R = DEFAULT_WEIGHT
