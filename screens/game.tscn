@@ -21,6 +21,7 @@ disabled = true
 position = Vector2(1920, 540)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_5b2na")
+disabled = true
 
 [node name="Bottom" type="CollisionShape2D" parent="LevelBorder"]
 position = Vector2(960, 1080)
@@ -30,6 +31,7 @@ shape = SubResource("WorldBoundaryShape2D_5b2na")
 position = Vector2(0, 540)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_5b2na")
+disabled = true
 
 [node name="Blocks" type="Node" parent="."]
 
