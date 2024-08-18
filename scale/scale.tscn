@@ -16,6 +16,14 @@ unique_name_in_owner = true
 position = Vector2(-450, 0)
 script = ExtResource("2_115tp")
 
+[node name="Appearance" type="ColorRect" parent="LeftSide"]
+offset_left = -300.0
+offset_top = -10.0
+offset_right = 300.0
+offset_bottom = 10.0
+pivot_offset = Vector2(300, 10)
+color = Color(0.6, 0.6, 0.6, 1)
+
 [node name="Hitbox" type="CollisionShape2D" parent="LeftSide"]
 shape = SubResource("RectangleShape2D_l5w7b")
 
@@ -23,6 +31,14 @@ shape = SubResource("RectangleShape2D_l5w7b")
 unique_name_in_owner = true
 position = Vector2(450, 0)
 script = ExtResource("3_0vq1t")
+
+[node name="Appearance" type="ColorRect" parent="RightSide"]
+offset_left = -300.0
+offset_top = -10.0
+offset_right = 300.0
+offset_bottom = 10.0
+pivot_offset = Vector2(300, 10)
+color = Color(0.6, 0.6, 0.6, 1)
 
 [node name="Hitbox" type="CollisionShape2D" parent="RightSide"]
 shape = SubResource("RectangleShape2D_l5w7b")
