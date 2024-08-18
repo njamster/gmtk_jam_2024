@@ -1,7 +1,18 @@
 extends RigidBody2D
 
 
+const MIN_SCALE := 0.5
+const MAX_SCALE := 8.0
+
 var _is_grounded := false
+
+
+func rescale(factor : float) -> void:
+	factor = clamp(factor, MIN_SCALE, MAX_SCALE)
+
+	$Appearance.scale *= Vector2(factor, factor)
+	$Hitbox.scale *= Vector2(factor, factor)
+	mass *= factor
 
 
 func _on_body_entered(body: Node) -> void:

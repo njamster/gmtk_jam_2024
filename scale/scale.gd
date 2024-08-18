@@ -2,7 +2,7 @@ extends Node2D
 
 
 const MAX_HEIGHT := 500  # pixels
-const DEFAULT_WEIGHT := 10.0  # kilogram
+const DEFAULT_WEIGHT := 20.0  # kilogram
 const MOVE_SPEED := 60.0  # pixels per second
 
 var total_weight_L := DEFAULT_WEIGHT
