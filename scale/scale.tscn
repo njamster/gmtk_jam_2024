@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scale/scale.gd" id="1_cjuyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5w7b"]
-size = Vector2(600, 20)
+size = Vector2(600, 60)
 
 [node name="Scale" type="Node2D"]
 position = Vector2(0, 500)
@@ -15,10 +15,10 @@ position = Vector2(-450, 0)
 
 [node name="Appearance" type="ColorRect" parent="LeftSide"]
 offset_left = -300.0
-offset_top = -10.0
+offset_top = -30.0
 offset_right = 300.0
-offset_bottom = 10.0
-pivot_offset = Vector2(300, 10)
+offset_bottom = 30.0
+pivot_offset = Vector2(300, 30)
 color = Color(0.6, 0.6, 0.6, 1)
 
 [node name="Hitbox" type="CollisionShape2D" parent="LeftSide"]
@@ -30,10 +30,10 @@ position = Vector2(450, 0)
 
 [node name="Appearance" type="ColorRect" parent="RightSide"]
 offset_left = -300.0
-offset_top = -10.0
+offset_top = -30.0
 offset_right = 300.0
-offset_bottom = 10.0
-pivot_offset = Vector2(300, 10)
+offset_bottom = 30.0
+pivot_offset = Vector2(300, 30)
 color = Color(0.6, 0.6, 0.6, 1)
 
 [node name="Hitbox" type="CollisionShape2D" parent="RightSide"]
