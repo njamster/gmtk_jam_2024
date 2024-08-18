@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1dfi"]
 size = Vector2(32, 32)
 
-[node name="BasicBlock" type="RigidBody2D"]
+[node name="BasicBlock" type="RigidBody2D" groups=["Block"]]
 mass = 5.0
 contact_monitor = true
 max_contacts_reported = 1

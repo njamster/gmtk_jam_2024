@@ -15,6 +15,7 @@ monitorable = false
 position = Vector2(960, 0)
 rotation = -3.14159
 shape = SubResource("WorldBoundaryShape2D_5b2na")
+disabled = true
 
 [node name="Right" type="CollisionShape2D" parent="LevelBorder"]
 position = Vector2(1920, 540)
