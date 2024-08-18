@@ -1,5 +1,6 @@
 extends Node2D
 
+
 const BASIC_BLOCK := preload("res://blocks/basic_block.tscn")
 
 
@@ -15,3 +16,8 @@ func _input(event: InputEvent) -> void:
 			block.global_position.x = randf_range(1142, 1678)
 			block.global_position.y = -100
 			$Blocks.add_child(block)
+
+
+func _on_level_border_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		get_tree().reload_current_scene.call_deferred()
