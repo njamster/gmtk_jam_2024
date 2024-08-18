@@ -25,7 +25,7 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 75.0
 scale_amount_max = 3.0
-color = Color(1, 0.741176, 0, 1)
+color = Color(0.686275, 0.839216, 0.607843, 1)
 
 [node name="Appearance" type="ColorRect" parent="."]
 offset_left = -16.0
@@ -34,7 +34,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 pivot_offset = Vector2(16, 16)
 mouse_filter = 2
-color = Color(1, 0.741176, 0, 1)
+color = Color(0.686275, 0.839216, 0.607843, 1)
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u1dfi")
