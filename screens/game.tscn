@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://x03e20t6txss"]
+[gd_scene load_steps=4 format=3 uid="uid://x03e20t6txss"]
 
 [ext_resource type="Script" path="res://screens/game.gd" id="1_b4tnn"]
-[ext_resource type="PackedScene" uid="uid://chu6pj6vxwn7a" path="res://player/player.tscn" id="1_ft2xj"]
 [ext_resource type="PackedScene" uid="uid://brvkk4mplduis" path="res://scale/scale.tscn" id="1_lebfw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5b2na"]
@@ -30,9 +29,6 @@ shape = SubResource("WorldBoundaryShape2D_5b2na")
 position = Vector2(0, 540)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_5b2na")
-
-[node name="Player" parent="." instance=ExtResource("1_ft2xj")]
-position = Vector2(448, 327)
 
 [node name="Blocks" type="Node" parent="."]
 

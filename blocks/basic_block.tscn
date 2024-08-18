@@ -5,7 +5,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1dfi"]
 size = Vector2(32, 32)
 
-[node name="BasicBlock" type="CharacterBody2D"]
+[node name="BasicBlock" type="RigidBody2D"]
+mass = 5.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_ebmj5")
 
 [node name="Appearance" type="ColorRect" parent="."]
@@ -19,3 +22,11 @@ color = Color(1, 0.741176, 0, 1)
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u1dfi")
 debug_color = Color(1, 0.6, 0, 0.419608)
+
+[node name="AirTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="AirTimer" to="." method="_on_air_timer_timeout"]

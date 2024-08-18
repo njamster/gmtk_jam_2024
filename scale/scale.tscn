@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://brvkk4mplduis"]
+[gd_scene load_steps=3 format=3 uid="uid://brvkk4mplduis"]
 
 [ext_resource type="Script" path="res://scale/scale.gd" id="1_cjuyf"]
-[ext_resource type="Script" path="res://scale/left_side.gd" id="2_115tp"]
-[ext_resource type="Script" path="res://scale/right_side.gd" id="3_0vq1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5w7b"]
 size = Vector2(600, 20)
@@ -14,7 +12,6 @@ script = ExtResource("1_cjuyf")
 [node name="LeftSide" type="AnimatableBody2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-450, 0)
-script = ExtResource("2_115tp")
 
 [node name="Appearance" type="ColorRect" parent="LeftSide"]
 offset_left = -300.0
@@ -30,7 +27,6 @@ shape = SubResource("RectangleShape2D_l5w7b")
 [node name="RightSide" type="AnimatableBody2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(450, 0)
-script = ExtResource("3_0vq1t")
 
 [node name="Appearance" type="ColorRect" parent="RightSide"]
 offset_left = -300.0

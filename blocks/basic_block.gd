@@ -1,27 +1,25 @@
-extends CharacterBody2D
-
-@export var weight := 5.0
-
-var _carrier
+extends RigidBody2D
 
 
-func _physics_process(delta: float) -> void:
-	if is_on_floor():
-		if _carrier == null:
-			var collider = get_slide_collision(0).get_collider()
-			if not collider:
-				return
-			if "_carrier" in collider:
-				_carrier = collider._carrier
-			else:
-				if collider.has_method("add_weight"):
-					_carrier = collider
-			if _carrier:
-				_carrier.add_weight(weight)
-	else:
-		if _carrier:
-			_carrier.subtract_weight(weight)
-			_carrier = null
-		velocity += get_gravity() * delta
+var _is_grounded := false
 
-	move_and_slide()
+
+func _on_body_entered(_body: Node) -> void:
+	$AirTimer.stop()
+	_is_grounded = true
+
+
+func _on_body_exited(_body: Node) -> void:
+	$AirTimer.start()
+
+
+func _physics_process(_delta: float) -> void:
+	if _is_grounded:
+		if position.x < 960:
+			get_tree().get_root().get_node("Game/Scale").total_weight_L += mass
+		else:
+			get_tree().get_root().get_node("Game/Scale").total_weight_R += mass
+
+
+func _on_air_timer_timeout() -> void:
+	_is_grounded = false
