@@ -7,6 +7,7 @@ size = Vector2(32, 32)
 
 [node name="BasicBlock" type="RigidBody2D" groups=["Block"]]
 mass = 5.0
+can_sleep = false
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_ebmj5")
