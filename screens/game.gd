@@ -7,6 +7,8 @@ var next_block_scale : float
 
 
 func _ready() -> void:
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CONFINED)
+
 	_pick_next_block_scale()
 
 
