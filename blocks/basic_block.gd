@@ -57,10 +57,3 @@ func _physics_process(_delta: float) -> void:
 
 func _on_air_timer_timeout() -> void:
 	_is_grounded = false
-
-
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if _is_grounded:
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
-			if event.is_released():
-				self.kill()
