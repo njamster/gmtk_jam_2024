@@ -31,5 +31,8 @@ func _physics_process(delta: float) -> void:
 
 	$Connector.rotation = $LeftSide.position.direction_to($RightSide.position).angle()
 
+	$LeftSide/Total.text = str(total_weight_L - DEFAULT_WEIGHT)
+	$RightSide/Total.text = str(total_weight_R - DEFAULT_WEIGHT)
+
 	total_weight_L = DEFAULT_WEIGHT
 	total_weight_R = DEFAULT_WEIGHT

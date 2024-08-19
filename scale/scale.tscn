@@ -31,6 +31,15 @@ texture = ExtResource("2_v62hn")
 [node name="Hitbox" type="CollisionShape2D" parent="LeftSide"]
 shape = SubResource("RectangleShape2D_l5w7b")
 
+[node name="Total" type="Label" parent="LeftSide"]
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
 [node name="RightSide" type="AnimatableBody2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(450, 0)
@@ -41,3 +50,12 @@ texture = ExtResource("2_v62hn")
 
 [node name="Hitbox" type="CollisionShape2D" parent="RightSide"]
 shape = SubResource("RectangleShape2D_l5w7b")
+
+[node name="Total" type="Label" parent="RightSide"]
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
