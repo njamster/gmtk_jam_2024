@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://btndi5y6guk8g"]
+[gd_scene load_steps=5 format=3 uid="uid://btndi5y6guk8g"]
 
 [ext_resource type="Script" path="res://blocks/basic_block.gd" id="1_ebmj5"]
+[ext_resource type="Texture2D" uid="uid://jb3ha4dkusy8" path="res://blocks/images/googly_eye.svg" id="2_34un3"]
+[ext_resource type="Texture2D" uid="uid://bnl21iicj3yqw" path="res://blocks/images/rounded_square.svg" id="2_bxg4j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1dfi"]
 size = Vector2(32, 32)
@@ -27,14 +29,18 @@ initial_velocity_max = 75.0
 scale_amount_max = 3.0
 color = Color(0.686275, 0.839216, 0.607843, 1)
 
-[node name="Appearance" type="ColorRect" parent="."]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-pivot_offset = Vector2(16, 16)
-mouse_filter = 2
-color = Color(0.686275, 0.839216, 0.607843, 1)
+[node name="Appearance" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.129412, 1, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_bxg4j")
+
+[node name="EyeL" type="Sprite2D" parent="Appearance"]
+position = Vector2(-32, -24)
+texture = ExtResource("2_34un3")
+
+[node name="EyeR" type="Sprite2D" parent="Appearance"]
+position = Vector2(20, -16)
+texture = ExtResource("2_34un3")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u1dfi")

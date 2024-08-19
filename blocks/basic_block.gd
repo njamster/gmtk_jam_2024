@@ -7,6 +7,12 @@ const MAX_SCALE := 8.0
 var _is_grounded := false
 
 
+func _enter_tree() -> void:
+	$Appearance.self_modulate = Color(
+		randf_range(0.5, 0.9), randf_range(0.5, 0.9), randf_range(0.5, 0.9)
+	)
+
+
 func rescale(factor : float) -> void:
 	factor = clamp(factor, MIN_SCALE, MAX_SCALE)
 

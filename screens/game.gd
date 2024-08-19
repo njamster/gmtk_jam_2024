@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _pick_next_block_scale() -> void:
-	next_block_scale = randf_range(1, 4)
+	next_block_scale = 0.5 * randi_range(2, 8)
 	$SpawnPreview.scale.x = next_block_scale
 
 
