@@ -24,7 +24,7 @@ shape = SubResource("WorldBoundaryShape2D_5b2na")
 disabled = true
 
 [node name="Bottom" type="CollisionShape2D" parent="LevelBorder"]
-position = Vector2(960, 1080)
+position = Vector2(960, 1050)
 shape = SubResource("WorldBoundaryShape2D_5b2na")
 
 [node name="Left" type="CollisionShape2D" parent="LevelBorder"]
