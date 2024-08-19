@@ -11,6 +11,7 @@ func _enter_tree() -> void:
 	$Appearance.self_modulate = Color(
 		randf_range(0.5, 0.9), randf_range(0.5, 0.9), randf_range(0.5, 0.9)
 	)
+	$ExplosionEffect.color = $Appearance.self_modulate
 
 
 func rescale(factor : float) -> void:

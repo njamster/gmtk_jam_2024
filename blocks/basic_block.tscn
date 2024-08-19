@@ -27,7 +27,6 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 75.0
 scale_amount_max = 3.0
-color = Color(0.686275, 0.839216, 0.607843, 1)
 
 [node name="Appearance" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.129412, 1, 1)
