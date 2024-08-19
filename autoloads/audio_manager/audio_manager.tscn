@@ -5,6 +5,7 @@
 [node name="AudioManager" type="Node"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("1_enw3c")
 autoplay = true
 bus = &"Music"

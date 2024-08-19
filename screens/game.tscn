@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://screens/game.gd" id="1_b4tnn"]
 [ext_resource type="PackedScene" uid="uid://brvkk4mplduis" path="res://scale/scale.tscn" id="1_lebfw"]
-[ext_resource type="PackedScene" uid="uid://b766c28kkk1lh" path="res://screens/pause_screen.tscn" id="3_qkx4y"]
+[ext_resource type="PackedScene" uid="uid://b766c28kkk1lh" path="res://screens/pause_screen/pause_screen.tscn" id="3_qkx4y"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5b2na"]
 

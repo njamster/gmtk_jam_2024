@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b766c28kkk1lh"]
+[gd_scene load_steps=3 format=3 uid="uid://b766c28kkk1lh"]
 
-[ext_resource type="Script" path="res://screens/pause_screen.gd" id="1_8qclp"]
+[ext_resource type="Script" path="res://screens/pause_screen/pause_screen.gd" id="1_8qclp"]
+[ext_resource type="PackedScene" uid="uid://dgfxvf63xbiqv" path="res://screens/pause_screen/volume_setter.tscn" id="2_xld4j"]
 
 [node name="PauseScreen" type="CanvasLayer"]
 script = ExtResource("1_8qclp")
@@ -11,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.784314)
+color = Color(0, 0, 0, 1)
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -25,12 +26,31 @@ offset_right = 35.0
 offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 48
 
 [node name="Heading" type="Label" parent="Buttons"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 128
 text = "Paused"
 uppercase = true
+
+[node name="VolumeSettings" type="VBoxContainer" parent="Buttons"]
+layout_mode = 2
+
+[node name="MasterVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+layout_mode = 2
+volume_in_percent = null
+
+[node name="MusicVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+layout_mode = 2
+bus_name = 1
+volume_in_percent = null
+
+[node name="SFXVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+layout_mode = 2
+bus_name = 2
+volume_in_percent = null
 
 [node name="Resume" type="Button" parent="Buttons"]
 unique_name_in_owner = true
