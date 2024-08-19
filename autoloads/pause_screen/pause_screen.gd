@@ -11,12 +11,14 @@ func _ready() -> void:
 
 func open() -> void:
 	get_tree().paused = true
+	AudioManager.muffle_music = true
 	%Resume.grab_focus()
 	self.show()
 
 
 func close() -> void:
 	self.hide()
+	AudioManager.muffle_music = false
 	get_tree().paused = false
 	_save_settings()
 
