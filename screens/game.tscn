@@ -33,9 +33,19 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_5b2na")
 disabled = true
 
+[node name="SpawnPreview" type="ColorRect" parent="."]
+offset_right = 32.0
+offset_bottom = 4.0
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
 [node name="Blocks" type="Node" parent="."]
 
 [node name="Scale" parent="." instance=ExtResource("1_lebfw")]
 position = Vector2(960, 600)
 
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
 [connection signal="body_entered" from="LevelBorder" to="." method="_on_level_border_body_entered"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

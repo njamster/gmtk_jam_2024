@@ -3,21 +3,31 @@ extends Node2D
 
 const BASIC_BLOCK := preload("res://blocks/basic_block.tscn")
 
-var button_pressed_time : float
+var next_block_scale : float
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			button_pressed_time = Time.get_unix_time_from_system()
-		else:
-			var hold_time = Time.get_unix_time_from_system() - button_pressed_time
+func _ready() -> void:
+	_pick_next_block_scale()
 
-			var block := BASIC_BLOCK.instantiate()
-			block.global_position.x = event.global_position.x
-			block.global_position.y = -100
-			block.rescale(4 * hold_time)
-			$Blocks.add_child(block)
+
+func _pick_next_block_scale() -> void:
+	next_block_scale = randf_range(1, 4)
+	$SpawnPreview.scale.x = next_block_scale
+
+
+func _process(_delta: float) -> void:
+	$SpawnPreview.global_position.x = get_global_mouse_position().x - (16 * next_block_scale)
+	$SpawnPreview.modulate.a = $SpawnTimer.wait_time - $SpawnTimer.time_left - 0.8
+
+
+func _on_spawn_timer_timeout() -> void:
+	var block := BASIC_BLOCK.instantiate()
+	block.global_position.x = get_global_mouse_position().x
+	block.global_position.y = -100
+	block.rescale(next_block_scale)
+	$Blocks.add_child(block)
+
+	_pick_next_block_scale()
 
 
 func _on_level_border_body_entered(body: Node2D) -> void:
