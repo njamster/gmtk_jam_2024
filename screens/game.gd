@@ -33,3 +33,8 @@ func _on_spawn_timer_timeout() -> void:
 func _on_level_border_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Block"):
 		body.kill()
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause_game"):
+		$PauseScreen.open()
