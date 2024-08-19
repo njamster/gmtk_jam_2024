@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://x03e20t6txss"]
+[gd_scene load_steps=4 format=3 uid="uid://x03e20t6txss"]
 
 [ext_resource type="Script" path="res://screens/game.gd" id="1_b4tnn"]
 [ext_resource type="PackedScene" uid="uid://brvkk4mplduis" path="res://scale/scale.tscn" id="1_lebfw"]
-[ext_resource type="PackedScene" uid="uid://b766c28kkk1lh" path="res://screens/pause_screen/pause_screen.tscn" id="3_qkx4y"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5b2na"]
 
@@ -47,8 +46,6 @@ position = Vector2(960, 600)
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
-
-[node name="PauseScreen" parent="." instance=ExtResource("3_qkx4y")]
 
 [connection signal="body_entered" from="LevelBorder" to="." method="_on_level_border_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

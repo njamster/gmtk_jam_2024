@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://autoloads/global.gd"
+PauseScreen="*res://autoloads/pause_screen/pause_screen.tscn"
 AudioManager="*res://autoloads/audio_manager/audio_manager.tscn"
 
 [display]

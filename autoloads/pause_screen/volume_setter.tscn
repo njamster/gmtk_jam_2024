@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgfxvf63xbiqv"]
 
-[ext_resource type="Script" path="res://screens/pause_screen/volume_setter.gd" id="1_xjkcg"]
+[ext_resource type="Script" path="res://autoloads/pause_screen/volume_setter.gd" id="1_xjkcg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogyge"]
 

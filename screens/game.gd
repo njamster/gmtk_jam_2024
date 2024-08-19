@@ -37,4 +37,4 @@ func _on_level_border_body_entered(body: Node2D) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_game"):
-		$PauseScreen.open()
+		PauseScreen.open()
