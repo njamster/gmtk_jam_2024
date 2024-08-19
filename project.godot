@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GMTK_Jam_2024"
+config/name="Balancia"
 run/main_scene="res://screens/game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -63,3 +63,4 @@ pause_game={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
