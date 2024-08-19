@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b766c28kkk1lh"]
+[gd_scene load_steps=4 format=3 uid="uid://b766c28kkk1lh"]
 
 [ext_resource type="Script" path="res://autoloads/pause_screen/pause_screen.gd" id="1_8qclp"]
 [ext_resource type="PackedScene" uid="uid://dgfxvf63xbiqv" path="res://autoloads/pause_screen/volume_setter.tscn" id="2_xld4j"]
+[ext_resource type="Script" path="res://custom_classes/better_button/better_button.gd" id="3_agaog"]
 
 [node name="PauseScreen" type="CanvasLayer"]
 script = ExtResource("1_8qclp")
@@ -41,19 +42,16 @@ layout_mode = 2
 [node name="MasterVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
 unique_name_in_owner = true
 layout_mode = 2
-is_muted = null
 
 [node name="MusicVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
 unique_name_in_owner = true
 layout_mode = 2
 bus_name = 1
-is_muted = null
 
 [node name="SFXVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
 unique_name_in_owner = true
 layout_mode = 2
 bus_name = 2
-is_muted = null
 
 [node name="Resume" type="Button" parent="Buttons"]
 unique_name_in_owner = true
@@ -62,5 +60,6 @@ size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 64
 text = "Resume"
+script = ExtResource("3_agaog")
 
 [connection signal="pressed" from="Buttons/Resume" to="." method="_on_resume_pressed"]
