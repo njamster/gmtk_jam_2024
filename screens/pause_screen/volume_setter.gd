@@ -28,6 +28,13 @@ const STEP_SIZE := 10  # percent
 			$Value.text = str(volume_in_percent) + "%"
 			$Increase.disabled = (volume_in_percent == 100)
 
+@export var is_muted := false:
+	set(value):
+		is_muted = value
+		if is_inside_tree():
+			AudioServer.set_bus_mute(bus_name, is_muted)
+			$Mute.button_pressed = is_muted
+
 
 func _enter_tree() -> void:
 	# trigger setters manually
@@ -43,5 +50,4 @@ func _on_increase_pressed() -> void:
 
 
 func _on_mute_toggled(toggled_on: bool) -> void:
-	AudioServer.set_bus_mute(bus_name, toggled_on)
-	$Mute.button_pressed = toggled_on
+	is_muted = toggled_on

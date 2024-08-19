@@ -39,18 +39,21 @@ uppercase = true
 layout_mode = 2
 
 [node name="MasterVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+unique_name_in_owner = true
 layout_mode = 2
-volume_in_percent = null
+is_muted = null
 
 [node name="MusicVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+unique_name_in_owner = true
 layout_mode = 2
 bus_name = 1
-volume_in_percent = null
+is_muted = null
 
 [node name="SFXVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+unique_name_in_owner = true
 layout_mode = 2
 bus_name = 2
-volume_in_percent = null
+is_muted = null
 
 [node name="Resume" type="Button" parent="Buttons"]
 unique_name_in_owner = true
