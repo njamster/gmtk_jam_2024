@@ -20,6 +20,18 @@ shape = SubResource("WorldBoundaryShape2D_5b2na")
 position = Vector2(960, 1050)
 shape = SubResource("WorldBoundaryShape2D_5b2na")
 
+[node name="PauseHint" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1465.0
+offset_top = 970.0
+offset_right = 1888.0
+offset_bottom = 1040.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.333333, 0.333333, 0.333333, 1)
+text = "ESC or P to pause"
+
 [node name="Sawblades" type="Node" parent="."]
 
 [node name="Blocks" type="Node" parent="."]
