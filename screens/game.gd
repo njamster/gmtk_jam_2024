@@ -3,33 +3,34 @@ extends Node2D
 
 const BASIC_BLOCK := preload("res://blocks/basic_block.tscn")
 
-var next_block_scale : float
+var next_block
+
+
+func _init() -> void:
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CONFINED)
 
 
 func _ready() -> void:
-	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CONFINED)
-
-	_pick_next_block_scale()
+	_spawn_next_block()
 
 
-func _pick_next_block_scale() -> void:
-	next_block_scale = 0.5 * randi_range(2, 8)
-	$SpawnPreview.scale.x = next_block_scale
+func _spawn_next_block() -> void:
+	if next_block:
+		next_block.state = next_block.States.DROPPING
+
+	next_block = BASIC_BLOCK.instantiate()
+	next_block.global_position = Vector2(get_global_mouse_position().x, 100)
+	$Blocks.add_child(next_block)
 
 
 func _process(_delta: float) -> void:
-	$SpawnPreview.global_position.x = get_global_mouse_position().x - (16 * next_block_scale)
-	$SpawnPreview.modulate.a = $SpawnTimer.wait_time - $SpawnTimer.time_left - 0.8
+	if next_block:
+		next_block.global_position.x = get_global_mouse_position().x
+		next_block.modulate.a = ($SpawnTimer.wait_time - $SpawnTimer.time_left - 0.5) / $SpawnTimer.wait_time
 
 
 func _on_spawn_timer_timeout() -> void:
-	var block := BASIC_BLOCK.instantiate()
-	block.global_position.x = get_global_mouse_position().x
-	block.global_position.y = -100
-	block.rescale(next_block_scale)
-	$Blocks.add_child(block)
-
-	_pick_next_block_scale()
+	_spawn_next_block()
 
 
 func _on_level_border_body_entered(body: Node2D) -> void:

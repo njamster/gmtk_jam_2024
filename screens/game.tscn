@@ -12,31 +12,13 @@ script = ExtResource("1_b4tnn")
 monitorable = false
 
 [node name="Top" type="CollisionShape2D" parent="LevelBorder"]
-position = Vector2(960, 0)
+position = Vector2(960, 30)
 rotation = -3.14159
 shape = SubResource("WorldBoundaryShape2D_5b2na")
-disabled = true
-
-[node name="Right" type="CollisionShape2D" parent="LevelBorder"]
-position = Vector2(1920, 540)
-rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_5b2na")
-disabled = true
 
 [node name="Bottom" type="CollisionShape2D" parent="LevelBorder"]
 position = Vector2(960, 1050)
 shape = SubResource("WorldBoundaryShape2D_5b2na")
-
-[node name="Left" type="CollisionShape2D" parent="LevelBorder"]
-position = Vector2(0, 540)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_5b2na")
-disabled = true
-
-[node name="SpawnPreview" type="ColorRect" parent="."]
-offset_right = 32.0
-offset_bottom = 4.0
-color = Color(0.862745, 0.0784314, 0.235294, 1)
 
 [node name="Blocks" type="Node" parent="."]
 

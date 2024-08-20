@@ -1,20 +1,40 @@
 extends RigidBody2D
 
+enum States {
+	SPAWNING,
+	DROPPING,
+}
 
 const MIN_SCALE := 1.0
 const MAX_SCALE := 8.0
+
+var state := States.SPAWNING:
+	set(value):
+		state = value
+		match state:
+			States.SPAWNING:
+				$Hitbox.disabled = true
+				self.freeze = true
+				modulate.a = 0.0
+			States.DROPPING:
+				$Hitbox.disabled = false
+				self.freeze = false
 
 var _is_grounded := false
 
 
 func _enter_tree() -> void:
+	state = state # trigger setter manually
+
+	_rescale(0.5 * randi_range(2, 8))
+
 	$Appearance.self_modulate = Color(
 		randf_range(0.5, 0.9), randf_range(0.5, 0.9), randf_range(0.5, 0.9)
 	)
 	$ExplosionEffect.color = $Appearance.self_modulate
 
 
-func rescale(factor : float) -> void:
+func _rescale(factor : float) -> void:
 	factor = clamp(factor, MIN_SCALE, MAX_SCALE)
 
 	$ExplosionEffect.scale *= Vector2(factor, factor)
