@@ -19,6 +19,15 @@ var muffle_music := false:
 				).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 
 
+func fade_in_music(fade_in_duration := 3.0) -> void:
+	$MusicPlayer.volume_db = -80
+	$MusicPlayer.play()
+	var tween = create_tween()
+	tween.tween_property(
+		$MusicPlayer, "volume_db", 0, fade_in_duration
+	).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+
+
 func play_sound(sound_stream: AudioStream) -> void:
 	var player := AudioStreamPlayer.new()
 	player.finished.connect(player.queue_free)

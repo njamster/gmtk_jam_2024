@@ -5,6 +5,7 @@ const BASIC_BLOCK := preload("res://blocks/basic_block.tscn")
 
 
 func _ready() -> void:
+	AudioManager.fade_in_music()
 	_on_spawn_timer_timeout()
 	%Play.grab_focus()
 
