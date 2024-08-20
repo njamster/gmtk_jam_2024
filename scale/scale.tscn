@@ -32,6 +32,7 @@ texture = ExtResource("2_v62hn")
 shape = SubResource("RectangleShape2D_l5w7b")
 
 [node name="Total" type="Label" parent="LeftSide"]
+visible = false
 offset_left = -300.0
 offset_right = 300.0
 offset_bottom = 88.0
@@ -52,6 +53,7 @@ texture = ExtResource("2_v62hn")
 shape = SubResource("RectangleShape2D_l5w7b")
 
 [node name="Total" type="Label" parent="RightSide"]
+visible = false
 offset_left = -300.0
 offset_right = 300.0
 offset_bottom = 88.0
