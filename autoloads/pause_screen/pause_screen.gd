@@ -51,5 +51,12 @@ func _on_restart_pressed() -> void:
 	self.close()
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_MOUSE_EXIT or what == NOTIFICATION_APPLICATION_FOCUS_OUT or \
+		what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+			if get_tree().current_scene.name == "Game":
+				self.open()
+
+
 func _input(event: InputEvent) -> void:
 	Global._input(event)
