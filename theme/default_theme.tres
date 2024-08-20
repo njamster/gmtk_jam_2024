@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://clarakrg4tt8m"]
+
+[ext_resource type="FontFile" uid="uid://cvr1b2wb3y047" path="res://theme/fonts/permanent_Marker/PermanentMarker-Regular.ttf" id="1_7fr8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3wur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmh6u"]
+draw_center = false
+border_width_bottom = 6
+border_color = Color(1, 0.823529, 0.00784314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjrtf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vyb3q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y06em"]
+
+[resource]
+default_font = ExtResource("1_7fr8n")
+default_font_size = 48
+Button/colors/font_color = Color(0.6, 0.6, 0.6, 1)
+Button/colors/font_disabled_color = Color(0.88, 0.88, 0.88, 0.156863)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 0.823529, 0.00784314, 1)
+Button/colors/font_pressed_color = Color(1, 0.823529, 0.00784314, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_f3wur")
+Button/styles/focus = SubResource("StyleBoxFlat_xmh6u")
+Button/styles/hover = SubResource("StyleBoxEmpty_pjrtf")
+Button/styles/normal = SubResource("StyleBoxEmpty_vyb3q")
+Button/styles/pressed = SubResource("StyleBoxEmpty_y06em")

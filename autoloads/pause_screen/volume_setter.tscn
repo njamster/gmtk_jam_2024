@@ -1,26 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgfxvf63xbiqv"]
+[gd_scene load_steps=3 format=3 uid="uid://dgfxvf63xbiqv"]
 
 [ext_resource type="Script" path="res://autoloads/pause_screen/volume_setter.gd" id="1_xjkcg"]
 [ext_resource type="Script" path="res://custom_classes/better_button/better_button.gd" id="2_5w36g"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogyge"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iw1j6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41hqy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15rgw"]
-
 [node name="MasterVolume" type="HBoxContainer"]
 theme_override_constants/separation = 16
 script = ExtResource("1_xjkcg")
+volume_in_percent = 100
 
 [node name="Name" type="Label" parent="."]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 64
-text = "Master"
+text = "Master Volume"
 
 [node name="Decrease" type="Button" parent="."]
 custom_minimum_size = Vector2(48, 0)
@@ -48,24 +41,5 @@ disabled = true
 text = "+"
 script = ExtResource("2_5w36g")
 
-[node name="Mute" type="Button" parent="."]
-custom_minimum_size = Vector2(48, 0)
-layout_mode = 2
-focus_mode = 0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_hover_pressed_color = Color(0.5, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0.5, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-theme_override_font_sizes/font_size = 64
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ogyge")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_iw1j6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_41hqy")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_15rgw")
-toggle_mode = true
-text = "Mute"
-
 [connection signal="pressed" from="Decrease" to="." method="_on_decrease_pressed"]
 [connection signal="pressed" from="Increase" to="." method="_on_increase_pressed"]
-[connection signal="pressed" from="Mute" to="." method="_on_mute_pressed"]
-[connection signal="toggled" from="Mute" to="." method="_on_mute_toggled"]

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://birns4dbrowug"
-path="res://.godot/imported/LuckiestGuy-Regular.ttf-659863b91e448110e59cfe34e605a779.fontdata"
+path="res://.godot/imported/LuckiestGuy-Regular.ttf-bb619afd146a8b2b726fb94f75e5ba39.fontdata"
 
 [deps]
 
-source_file="res://fonts/luckiest_guy/LuckiestGuy-Regular.ttf"
-dest_files=["res://.godot/imported/LuckiestGuy-Regular.ttf-659863b91e448110e59cfe34e605a779.fontdata"]
+source_file="res://theme/fonts/luckiest_guy/LuckiestGuy-Regular.ttf"
+dest_files=["res://.godot/imported/LuckiestGuy-Regular.ttf-bb619afd146a8b2b726fb94f75e5ba39.fontdata"]
 
 [params]
 

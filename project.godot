@@ -33,6 +33,10 @@ window/stretch/mode="canvas_items"
 
 Block=""
 
+[gui]
+
+theme/custom="res://theme/default_theme.tres"
+
 [input]
 
 walk_left={

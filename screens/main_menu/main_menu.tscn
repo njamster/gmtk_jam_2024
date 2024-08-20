@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dluel55usqxj0"]
+[gd_scene load_steps=7 format=3 uid="uid://dluel55usqxj0"]
 
 [ext_resource type="Script" path="res://custom_classes/better_button/better_button.gd" id="1_rijip"]
 [ext_resource type="Script" path="res://screens/main_menu/main_menu.gd" id="1_sfuo3"]
-[ext_resource type="FontFile" uid="uid://birns4dbrowug" path="res://fonts/luckiest_guy/LuckiestGuy-Regular.ttf" id="2_v6iru"]
-[ext_resource type="FontFile" uid="uid://cvr1b2wb3y047" path="res://fonts/permanent_Marker/PermanentMarker-Regular.ttf" id="3_l18nl"]
+[ext_resource type="FontFile" uid="uid://birns4dbrowug" path="res://theme/fonts/luckiest_guy/LuckiestGuy-Regular.ttf" id="2_v6iru"]
 
 [sub_resource type="FontVariation" id="FontVariation_gobuq"]
 base_font = ExtResource("2_v6iru")
@@ -21,14 +20,6 @@ shadow_offset = Vector2(12, 12)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iqtcm"]
 content_margin_bottom = 64.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfgft"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cu7da"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4usq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5evv"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -51,7 +42,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.188235)
 
 [node name="VBox" type="VBoxContainer" parent="."]
-z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -74,26 +64,15 @@ horizontal_alignment = 1
 
 [node name="Creators" type="Label" parent="VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_fonts/font = ExtResource("3_l18nl")
-theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxEmpty_iqtcm")
 text = "a game by njamster & vacuumbeef"
 horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="VBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(1, 0.823529, 0.00784314, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.823529, 0.00784314, 1)
-theme_override_fonts/font = ExtResource("3_l18nl")
 theme_override_font_sizes/font_size = 128
-theme_override_styles/focus = SubResource("StyleBoxEmpty_kfgft")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cu7da")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_k4usq")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_i5evv")
 text = "Play"
 script = ExtResource("1_rijip")
 

@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://b766c28kkk1lh"]
+[gd_scene load_steps=7 format=3 uid="uid://b766c28kkk1lh"]
 
 [ext_resource type="Script" path="res://autoloads/pause_screen/pause_screen.gd" id="1_8qclp"]
+[ext_resource type="FontFile" uid="uid://birns4dbrowug" path="res://theme/fonts/luckiest_guy/LuckiestGuy-Regular.ttf" id="2_srmfg"]
 [ext_resource type="PackedScene" uid="uid://dgfxvf63xbiqv" path="res://autoloads/pause_screen/volume_setter.tscn" id="2_xld4j"]
 [ext_resource type="Script" path="res://custom_classes/better_button/better_button.gd" id="3_agaog"]
+
+[sub_resource type="FontVariation" id="FontVariation_ddurl"]
+base_font = ExtResource("2_srmfg")
+spacing_glyph = 32
+spacing_bottom = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_24mg0"]
+line_spacing = 0.0
+font = SubResource("FontVariation_ddurl")
+font_size = 160
+font_color = Color(1, 0.823529, 0.00784314, 1)
+shadow_size = 0
+shadow_color = Color(1, 0.219608, 0.0235294, 1)
+shadow_offset = Vector2(12, 12)
 
 [node name="PauseScreen" type="CanvasLayer"]
 script = ExtResource("1_8qclp")
@@ -13,9 +28,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.133333, 0.133333, 0.133333, 1)
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,47 +44,52 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 48
 
-[node name="Heading" type="Label" parent="Buttons"]
+[node name="Heading" type="Label" parent="VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 128
 text = "Paused"
+label_settings = SubResource("LabelSettings_24mg0")
 uppercase = true
 
-[node name="VolumeSettings" type="VBoxContainer" parent="Buttons"]
+[node name="VolumeSettings" type="VBoxContainer" parent="VBox"]
 layout_mode = 2
 
-[node name="MasterVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+[node name="MasterVolume" parent="VBox/VolumeSettings" instance=ExtResource("2_xld4j")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MusicVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+[node name="MusicVolume" parent="VBox/VolumeSettings" instance=ExtResource("2_xld4j")]
 unique_name_in_owner = true
 layout_mode = 2
 bus_name = 1
 
-[node name="SFXVolume" parent="Buttons/VolumeSettings" instance=ExtResource("2_xld4j")]
+[node name="SFXVolume" parent="VBox/VolumeSettings" instance=ExtResource("2_xld4j")]
 unique_name_in_owner = true
 layout_mode = 2
 bus_name = 2
 
-[node name="Resume" type="Button" parent="Buttons"]
+[node name="Buttons" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Resume" type="Button" parent="VBox/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 64
-text = "Resume Game"
+theme_override_font_sizes/font_size = 128
+text = "Resume"
 script = ExtResource("3_agaog")
 
-[node name="Restart" type="Button" parent="Buttons"]
+[node name="Restart" type="Button" parent="VBox/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 64
-text = "Restart Game"
+theme_override_font_sizes/font_size = 128
+text = "Restart"
 script = ExtResource("3_agaog")
 
-[connection signal="pressed" from="Buttons/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBox/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBox/Buttons/Restart" to="." method="_on_restart_pressed"]

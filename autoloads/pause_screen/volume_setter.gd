@@ -10,15 +10,13 @@ const STEP_SIZE := 10  # percent
 		if is_inside_tree():
 			match bus_name:
 				0:
-					$Name.text = "Master"
+					$Name.text = "Master Volume"
 				1:
-					$Name.text = "Music"
+					$Name.text = "Music Volume"
 				2:
-					$Name.text = "SFX"
-			volume_in_percent = roundi(db_to_linear(AudioServer.get_bus_volume_db(bus_name)) * 100)
-			$Mute.button_pressed = AudioServer.is_bus_mute(bus_name)
+					$Name.text = "SFX Volume"
 
-@export var volume_in_percent := 100:
+@export var volume_in_percent := 80:
 	set(value):
 		volume_in_percent = clamp(value, 0, 100)
 		if is_inside_tree():
@@ -28,17 +26,11 @@ const STEP_SIZE := 10  # percent
 			$Value.text = str(volume_in_percent) + "%"
 			$Increase.disabled = (volume_in_percent == 100)
 
-@export var is_muted := false:
-	set(value):
-		is_muted = value
-		if is_inside_tree():
-			AudioServer.set_bus_mute(bus_name, is_muted)
-			$Mute.button_pressed = is_muted
-
 
 func _enter_tree() -> void:
 	# trigger setters manually
 	bus_name = bus_name
+	volume_in_percent = volume_in_percent
 
 
 func _on_decrease_pressed() -> void:
@@ -47,7 +39,3 @@ func _on_decrease_pressed() -> void:
 
 func _on_increase_pressed() -> void:
 	volume_in_percent += STEP_SIZE
-
-
-func _on_mute_toggled(toggled_on: bool) -> void:
-	is_muted = toggled_on
