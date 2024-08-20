@@ -50,14 +50,15 @@ func _on_level_border_body_entered(body: Node2D) -> void:
 		body.kill()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT) or \
+		(event is InputEventKey and event.key_label == KEY_SPACE):
+			if event.is_released():
+				if ($SpawnTimer.wait_time - $SpawnTimer.time_left) > 0.6:
+					_spawn_next_block()
+					$SpawnTimer.start($SpawnTimer.wait_time)
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_game"):
 		PauseScreen.open()
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.is_released():
-			if ($SpawnTimer.wait_time - $SpawnTimer.time_left) > 0.6:
-				_spawn_next_block()
-				$SpawnTimer.start($SpawnTimer.wait_time)
