@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 const BASIC_BLOCK := preload("res://blocks/basic_block.tscn")
@@ -62,3 +62,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_game"):
 		PauseScreen.open()
+
+
+func _on_pause_button_pressed() -> void:
+	PauseScreen.open()

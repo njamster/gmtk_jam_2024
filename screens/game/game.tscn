@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://x03e20t6txss"]
+[gd_scene load_steps=5 format=3 uid="uid://x03e20t6txss"]
 
 [ext_resource type="Script" path="res://screens/game/game.gd" id="1_b4tnn"]
 [ext_resource type="PackedScene" uid="uid://brvkk4mplduis" path="res://scale/scale.tscn" id="1_lebfw"]
+[ext_resource type="Texture2D" uid="uid://bp0omsnv681vi" path="res://screens/game/images/pause.png" id="2_c0ynh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5b2na"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_b4tnn")
 
 [node name="LevelBorder" type="Area2D" parent="."]
@@ -20,17 +27,21 @@ shape = SubResource("WorldBoundaryShape2D_5b2na")
 position = Vector2(960, 1050)
 shape = SubResource("WorldBoundaryShape2D_5b2na")
 
-[node name="PauseHint" type="Label" parent="."]
-anchors_preset = 2
+[node name="PauseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1465.0
-offset_top = 970.0
-offset_right = 1888.0
-offset_bottom = 1040.0
+offset_left = -108.0
+offset_top = -132.0
+offset_right = -8.0
+offset_bottom = -32.0
+grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.333333, 0.333333, 0.333333, 1)
-text = "ESC or P to pause"
+focus_mode = 0
+icon = ExtResource("2_c0ynh")
 
 [node name="Sawblades" type="Node" parent="."]
 
@@ -55,4 +66,5 @@ wait_time = 4.0
 autostart = true
 
 [connection signal="body_entered" from="LevelBorder" to="." method="_on_level_border_body_entered"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
