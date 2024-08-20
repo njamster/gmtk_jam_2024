@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 
+var highest_weight := 0
+
+
 func _ready() -> void:
 	self.hide()
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -9,6 +12,7 @@ func _ready() -> void:
 func open() -> void:
 	get_tree().paused = true
 	AudioManager.muffle_music = true
+	%HighestWeight.text = str(highest_weight) + " kg"
 	self.show()
 
 
@@ -20,6 +24,7 @@ func close() -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
+	highest_weight = 0
 	self.close()
 
 

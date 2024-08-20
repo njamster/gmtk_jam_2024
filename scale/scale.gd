@@ -22,8 +22,13 @@ func _physics_process(delta: float) -> void:
 	$Connector.rotation = $LeftSide.position.direction_to($RightSide.position).angle()
 
 	# step 3: update the total weight display
-	$LeftSide/Total.text = str(total_weight_L)
-	$RightSide/Total.text = str(total_weight_R)
+	$LeftSide/Total.text = str(total_weight_L) + " kg"
+	$RightSide/Total.text = str(total_weight_R) + " kg"
+
+	GameOverScreen.highest_weight = max(
+		GameOverScreen.highest_weight,
+		total_weight_L + total_weight_R
+	)
 
 	# step 4: reset the total weights (will be recalculated next frame)
 	total_weight_L = 0

@@ -47,7 +47,7 @@ func _on_block_killed(killed_block: Node) -> void:
 	var game_over := true # assumption
 
 	for block in $Blocks.get_children():
-		if block._is_grounded:
+		if block._is_grounded and not block.is_queued_for_deletion():
 			game_over = false
 			break # we already know it's not over
 

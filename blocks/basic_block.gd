@@ -62,6 +62,7 @@ func kill() -> void:
 	killed.emit(self)
 	$Appearance.hide()
 	_is_grounded = false
+	$Hitbox.set_deferred("disabled", true)
 	$ExplosionEffect.emitting = true
 	await $ExplosionEffect.finished
 	queue_free()

@@ -51,6 +51,19 @@ text = "Game Over"
 label_settings = SubResource("LabelSettings_24mg0")
 uppercase = true
 
+[node name="IntroText" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Before your untimely demise, though,
+you managed to juggle a whopping total of"
+horizontal_alignment = 1
+
+[node name="HighestWeight" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "1337 kg"
+horizontal_alignment = 1
+
 [node name="Restart" type="Button" parent="VBox"]
 unique_name_in_owner = true
 layout_mode = 2

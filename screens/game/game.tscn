@@ -51,11 +51,13 @@ icon = ExtResource("2_c0ynh")
 position = Vector2(960, 570)
 
 [node name="Ceiling" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 7.0
 color = Color(0.466667, 0.466667, 0.466667, 1)
 
 [node name="Floor" type="ColorRect" parent="."]
+layout_mode = 0
 offset_top = 1073.0
 offset_right = 1920.0
 offset_bottom = 1080.0
