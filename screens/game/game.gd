@@ -25,6 +25,7 @@ func _ready() -> void:
 
 func _spawn_next_block() -> void:
 	if next_block:
+		next_block.modulate.a = 1.0
 		next_block.state = next_block.States.DROPPING
 
 	next_block = BASIC_BLOCK.instantiate()
@@ -52,3 +53,11 @@ func _on_level_border_body_entered(body: Node2D) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_game"):
 		PauseScreen.open()
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.is_released():
+			if ($SpawnTimer.wait_time - $SpawnTimer.time_left) > 0.6:
+				_spawn_next_block()
+				$SpawnTimer.start($SpawnTimer.wait_time)
