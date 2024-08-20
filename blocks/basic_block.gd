@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 enum States {
+	MENU_SCREEN,
 	SPAWNING,
 	DROPPING,
 }
@@ -34,6 +35,10 @@ func _enter_tree() -> void:
 		randf_range(0.5, 0.9), randf_range(0.5, 0.9), randf_range(0.5, 0.9)
 	)
 	$ExplosionEffect.color = $Appearance.self_modulate
+
+	if state == States.MENU_SCREEN:
+		$Hitbox.disabled = true
+		gravity_scale = 0.15
 
 
 func _rescale(factor : float) -> void:
@@ -77,3 +82,7 @@ func _physics_process(_ydelta: float) -> void:
 
 func _on_air_timer_timeout() -> void:
 	_is_grounded = false
+
+
+func _on_visibility_notifier_screen_exited() -> void:
+	queue_free()

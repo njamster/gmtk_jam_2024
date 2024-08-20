@@ -12,7 +12,10 @@ grow_vertical = 2
 color = Color(0.0862745, 0.0862745, 0.113725, 1)
 script = ExtResource("1_sfuo3")
 
+[node name="Blocks" type="Node" parent="."]
+
 [node name="VBox" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,4 +53,8 @@ theme_override_font_sizes/font_size = 64
 text = "Play"
 script = ExtResource("1_rijip")
 
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="pressed" from="VBox/Play" to="." method="_on_play_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

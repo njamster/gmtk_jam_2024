@@ -41,6 +41,10 @@ texture = ExtResource("2_34un3")
 position = Vector2(20, -16)
 texture = ExtResource("2_34un3")
 
+[node name="VisibilityNotifier" type="VisibleOnScreenNotifier2D" parent="Appearance"]
+scale = Vector2(4, 4)
+rect = Rect2(-16, -16, 32, 32)
+
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u1dfi")
 
@@ -51,4 +55,5 @@ one_shot = true
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="screen_exited" from="Appearance/VisibilityNotifier" to="." method="_on_visibility_notifier_screen_exited"]
 [connection signal="timeout" from="AirTimer" to="." method="_on_air_timer_timeout"]
