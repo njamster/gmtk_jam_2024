@@ -12,46 +12,52 @@ grow_vertical = 2
 script = ExtResource("1_x3d5s")
 
 [node name="VBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1600, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -738.5
+offset_top = -410.0
+offset_right = 738.5
+offset_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 96
+theme_override_constants/separation = 48
 
-[node name="Part1" type="Label" parent="VBox"]
+[node name="Part1" type="RichTextLabel" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 210)
 layout_mode = 2
-theme_override_constants/line_spacing = -10
-text = "Little fellas, called ubicados, are falling from the sky!
+bbcode_enabled = true
+text = "[center]Lil' fellas, called [color=ffd202]ubicados[/color], are falling from the sky!
+And – oh no! – there's [color=RED]sawblades[/color] everywhere!
+Oddly enough, the only safe space seems to be that... [color=ffd202]scale?![/color][/center]"
+fit_content = true
 
-And – oh no! – there's sawblades everywhere!
-
-Oddly enough, the only safe space seems to be that... scale."
-horizontal_alignment = 1
-
-[node name="Part2" type="Label" parent="VBox"]
+[node name="Part2" type="RichTextLabel" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.823529, 0.00784314, 1)
-theme_override_constants/line_spacing = -10
-text = "Move the mouse to control where the next ubicado will land.
-Click to make the ubicado drop down."
-horizontal_alignment = 1
+bbcode_enabled = true
+text = "[center][color=ffd202]Move the mouse[/color] to control where the next ubicado will land.
+They'll drop automatically. [color=ffd202]Click to[/color] make them [color=ffd202]drop faster[/color].[/center]"
+fit_content = true
 
-[node name="Part3" type="Label" parent="VBox"]
+[node name="Part3" type="RichTextLabel" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
-theme_override_constants/line_spacing = -10
-text = "But don't take too long, or they can't hold any longer!"
-horizontal_alignment = 1
+bbcode_enabled = true
+text = "[center][color=ffd202]If the scale tips[/color] too much, all ubicados will [color=RED]die![/color] [color=ffd202]Stack[/color] as much Ubicado [color=ffd202]Kilograms[/color] as possible [color=ffd202]on the scale[/color] before that!
+[/center]"
+fit_content = true
 
 [node name="Continue" type="Button" parent="VBox"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 128
 text = "Continue"
 
