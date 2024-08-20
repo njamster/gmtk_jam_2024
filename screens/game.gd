@@ -28,13 +28,15 @@ func _spawn_next_block() -> void:
 		next_block.state = next_block.States.DROPPING
 
 	next_block = BASIC_BLOCK.instantiate()
-	next_block.global_position = Vector2(get_global_mouse_position().x, 100)
 	$Blocks.add_child(next_block)
+
+	next_block.global_position.x = clamp(get_global_mouse_position().x, 80, 1840)
+	next_block.global_position.y = 30 + 16 * (next_block.scale_factor + 1)
 
 
 func _process(_delta: float) -> void:
 	if next_block:
-		next_block.global_position.x = get_global_mouse_position().x
+		next_block.global_position.x = clamp(get_global_mouse_position().x, 80, 1840)
 		next_block.modulate.a = ($SpawnTimer.wait_time - $SpawnTimer.time_left - 0.5) / $SpawnTimer.wait_time
 
 

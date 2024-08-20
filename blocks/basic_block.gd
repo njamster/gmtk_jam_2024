@@ -20,6 +20,8 @@ var state := States.SPAWNING:
 				$Hitbox.disabled = false
 				self.freeze = false
 
+var scale_factor := 1.0
+
 var _is_grounded := false
 
 
@@ -35,17 +37,17 @@ func _enter_tree() -> void:
 
 
 func _rescale(factor : float) -> void:
-	factor = clamp(factor, MIN_SCALE, MAX_SCALE)
+	scale_factor = clamp(factor, MIN_SCALE, MAX_SCALE)
 
-	$ExplosionEffect.scale *= Vector2(factor, factor)
-	$ExplosionEffect.scale_amount_min = 1.0 + 0.125 * factor
-	$ExplosionEffect.scale_amount_max = 1.0 + 0.500 * factor
-	$ExplosionEffect.amount *= factor
+	$ExplosionEffect.scale *= Vector2(scale_factor, scale_factor)
+	$ExplosionEffect.scale_amount_min = 1.0 + 0.125 * scale_factor
+	$ExplosionEffect.scale_amount_max = 1.0 + 0.500 * scale_factor
+	$ExplosionEffect.amount *= scale_factor
 
-	$Appearance.scale *= Vector2(factor, factor)
-	$Hitbox.scale *= Vector2(factor, factor)
+	$Appearance.scale *= Vector2(scale_factor, scale_factor)
+	$Hitbox.scale *= Vector2(scale_factor, scale_factor)
 
-	mass *= factor
+	mass *= scale_factor
 
 
 func kill() -> void:
