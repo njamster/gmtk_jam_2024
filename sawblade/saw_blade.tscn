@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dthfb24jbhac8"]
+
+[ext_resource type="Texture2D" uid="uid://opexnpxgn8cn" path="res://sawblade/images/sawblade.svg" id="1_4eur0"]
+[ext_resource type="Script" path="res://sawblade/saw_blade.gd" id="2_dn7u3"]
+
+[node name="SawBlade" type="Sprite2D"]
+texture = ExtResource("1_4eur0")
+script = ExtResource("2_dn7u3")

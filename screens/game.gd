@@ -2,12 +2,21 @@ extends Node2D
 
 
 const BASIC_BLOCK := preload("res://blocks/basic_block.tscn")
+const SAW_BLADE := preload("res://sawblade/saw_blade.tscn")
 
 var next_block
 
 
 func _init() -> void:
 	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CONFINED)
+
+
+func _enter_tree() -> void:
+	for y in [0, 1080]:
+		for x in range(32, 1920, 64):
+			var saw_blade := SAW_BLADE.instantiate()
+			saw_blade.global_position = Vector2(x, y)
+			$Sawblades.add_child(saw_blade)
 
 
 func _ready() -> void:
