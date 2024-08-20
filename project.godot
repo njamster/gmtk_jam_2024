@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://autoloads/global.gd"
 PauseScreen="*res://autoloads/pause_screen/pause_screen.tscn"
+GameOverScreen="*res://autoloads/game_over_screen/game_over_screen.tscn"
 AudioManager="*res://autoloads/audio_manager/audio_manager.tscn"
 
 [display]

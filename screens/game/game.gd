@@ -4,6 +4,8 @@ extends Control
 const BASIC_BLOCK := preload("res://blocks/basic_block.tscn")
 const SAW_BLADE := preload("res://sawblade/saw_blade.tscn")
 
+var _game_is_on := false
+
 var next_block
 
 
@@ -33,6 +35,25 @@ func _spawn_next_block() -> void:
 
 	next_block.global_position.x = clamp(get_global_mouse_position().x, 80, 1840)
 	next_block.global_position.y = 30 + 16 * (next_block.scale_factor + 1)
+
+	next_block.landed.connect(func(): _game_is_on = true)
+	next_block.killed.connect(_on_block_killed)
+
+
+func _on_block_killed(killed_block: Node) -> void:
+	if not _game_is_on:
+		return
+
+	var game_over := true # assumption
+
+	for block in $Blocks.get_children():
+		if block._is_grounded:
+			game_over = false
+			break # we already know it's not over
+
+	if game_over:
+		await killed_block.get_node("ExplosionEffect").finished
+		GameOverScreen.open()
 
 
 func _process(_delta: float) -> void:

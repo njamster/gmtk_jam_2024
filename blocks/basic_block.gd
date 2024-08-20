@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+signal landed()
+signal killed(block)
+
 enum States {
 	MENU_SCREEN,
 	SPAWNING,
@@ -56,6 +59,7 @@ func _rescale(factor : float) -> void:
 
 
 func kill() -> void:
+	killed.emit(self)
 	$Appearance.hide()
 	_is_grounded = false
 	$ExplosionEffect.emitting = true
@@ -66,6 +70,7 @@ func kill() -> void:
 func _on_body_entered(_body: Node) -> void:
 	$AirTimer.stop()
 	_is_grounded = true
+	landed.emit()
 
 
 func _on_body_exited(_body: Node) -> void:
@@ -85,4 +90,5 @@ func _on_air_timer_timeout() -> void:
 
 
 func _on_visibility_notifier_screen_exited() -> void:
-	queue_free()
+	if state == States.MENU_SCREEN:
+		queue_free()

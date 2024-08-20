@@ -54,7 +54,7 @@ func _on_restart_pressed() -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_MOUSE_EXIT or what == NOTIFICATION_APPLICATION_FOCUS_OUT or \
 		what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
-			if get_tree().current_scene.name == "Game":
+			if get_tree().current_scene.name == "Game" and not GameOverScreen.visible:
 				self.open()
 
 
