@@ -54,3 +54,8 @@ func _save_settings() -> void:
 
 func _on_resume_pressed() -> void:
 	self.close()
+
+
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
+	self.close()
