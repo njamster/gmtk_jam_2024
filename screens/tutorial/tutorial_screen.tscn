@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://c28f4v1s1ff4n"]
+
+[ext_resource type="Script" path="res://screens/tutorial/tutorial_screen.gd" id="1_x3d5s"]
+
+[node name="TutorialScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x3d5s")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 96
+
+[node name="Part1" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_constants/line_spacing = -10
+text = "Little fellas, called ubicados, are falling from the sky!
+
+And – oh no! – there's sawblades everywhere!
+
+Oddly enough, the only safe space seems to be that... scale."
+horizontal_alignment = 1
+
+[node name="Part2" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.823529, 0.00784314, 1)
+theme_override_constants/line_spacing = -10
+text = "Move the mouse to control where the next ubicado will land.
+Click to make the ubicado drop down."
+horizontal_alignment = 1
+
+[node name="Part3" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_constants/line_spacing = -10
+text = "But don't take too long, or they can't hold any longer!"
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Continue"
+
+[connection signal="pressed" from="VBox/Continue" to="." method="_on_continue_pressed"]
