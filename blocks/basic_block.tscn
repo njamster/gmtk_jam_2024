@@ -45,7 +45,7 @@ texture = ExtResource("2_34un3")
 shape = SubResource("RectangleShape2D_u1dfi")
 
 [node name="AirTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
