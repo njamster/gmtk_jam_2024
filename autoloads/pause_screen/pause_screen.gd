@@ -49,3 +49,7 @@ func _on_resume_pressed() -> void:
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 	self.close()
+
+
+func _input(event: InputEvent) -> void:
+	Global._input(event)
