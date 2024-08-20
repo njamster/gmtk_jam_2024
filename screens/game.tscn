@@ -1,41 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://x03e20t6txss"]
+[gd_scene load_steps=4 format=3 uid="uid://x03e20t6txss"]
 
 [ext_resource type="Script" path="res://screens/game.gd" id="1_b4tnn"]
 [ext_resource type="PackedScene" uid="uid://brvkk4mplduis" path="res://scale/scale.tscn" id="1_lebfw"]
-[ext_resource type="Shader" path="res://screens/lava.gdshader" id="2_jld7v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5b2na"]
-
-[sub_resource type="Gradient" id="Gradient_hjjr8"]
-offsets = PackedFloat32Array(0, 0.146444, 0.594142, 0.665272, 1)
-colors = PackedColorArray(0.133333, 0.133333, 0.133333, 1, 0.133333, 0.133333, 0.133333, 1, 0.972549, 0.227451, 0.129412, 1, 1, 0.580392, 0.14902, 1, 1, 1, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_j6p5l"]
-noise_type = 3
-frequency = 0.03
-fractal_type = 3
-fractal_octaves = 2
-fractal_lacunarity = 1.4
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_odqdc"]
-seamless = true
-color_ramp = SubResource("Gradient_hjjr8")
-noise = SubResource("FastNoiseLite_j6p5l")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_thjbq"]
-shader = ExtResource("2_jld7v")
-shader_parameter/tides_magnitude = 0.05
-shader_parameter/tides_speed = 0.5
-shader_parameter/noise_factor = 0.04
-shader_parameter/noise1 = SubResource("NoiseTexture2D_odqdc")
-
-[sub_resource type="Curve" id="Curve_ieyjq"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_rmjwy"]
-offsets = PackedFloat32Array(0, 0.296154, 1)
-colors = PackedColorArray(0.25098, 0, 0, 1, 1, 0.501961, 0.192157, 1, 1, 1, 0.0941176, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_b4tnn")
@@ -71,27 +39,6 @@ offset_bottom = 4.0
 color = Color(0.862745, 0.0784314, 0.235294, 1)
 
 [node name="Blocks" type="Node" parent="."]
-
-[node name="Lava" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_thjbq")
-offset_top = 840.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="Sparks" type="CPUParticles2D" parent="Lava"]
-position = Vector2(960, 120)
-amount = 5
-randomness = 1.0
-lifetime_randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(960, 120)
-direction = Vector2(0, -1)
-initial_velocity_min = 200.0
-initial_velocity_max = 300.0
-scale_amount_min = 10.0
-scale_amount_max = 10.0
-scale_amount_curve = SubResource("Curve_ieyjq")
-color_ramp = SubResource("Gradient_rmjwy")
 
 [node name="Scale" parent="." instance=ExtResource("1_lebfw")]
 position = Vector2(960, 600)

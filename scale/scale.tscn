@@ -13,7 +13,7 @@ position = Vector2(0, 500)
 script = ExtResource("1_cjuyf")
 
 [node name="Base" type="Sprite2D" parent="."]
-position = Vector2(0, 250)
+position = Vector2(0, 330)
 texture = ExtResource("3_ah3cx")
 
 [node name="Connector" type="Sprite2D" parent="."]
